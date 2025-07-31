@@ -2,7 +2,7 @@ terraform {
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
-      version = "4.37.0"
+      version = "4.38.0"
     }
   }
 }
@@ -63,6 +63,10 @@ resource "azurerm_linux_virtual_machine" "this" {
     azurerm_network_interface.this[0].id,
   ]
 
+  # tags = [
+  #   var.tags
+  # ]
+
   #   admin_ssh_key {
   #     username   = "adminuser"
   #     public_key = file("~/.ssh/id_rsa.pub")
@@ -90,7 +94,7 @@ resource "azurerm_storage_account" "this" {
   account_replication_type = "LRS"
 
   tags = {
-    environment = var.prefix
+    environment = var.tags
   }
 }
 

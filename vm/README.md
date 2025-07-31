@@ -3,25 +3,25 @@
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | 4.37.0 |
+| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | 4.38.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 4.37.0 |
+| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 4.38.0 |
 
 ## Resources
 
 | Name | Type |
 |------|------|
-| [azurerm_linux_virtual_machine.this](https://registry.terraform.io/providers/hashicorp/azurerm/4.37.0/docs/resources/linux_virtual_machine) | resource |
-| [azurerm_network_interface.this](https://registry.terraform.io/providers/hashicorp/azurerm/4.37.0/docs/resources/network_interface) | resource |
-| [azurerm_resource_group.this](https://registry.terraform.io/providers/hashicorp/azurerm/4.37.0/docs/resources/resource_group) | resource |
-| [azurerm_storage_account.this](https://registry.terraform.io/providers/hashicorp/azurerm/4.37.0/docs/resources/storage_account) | resource |
-| [azurerm_storage_container.this](https://registry.terraform.io/providers/hashicorp/azurerm/4.37.0/docs/resources/storage_container) | resource |
-| [azurerm_subnet.this](https://registry.terraform.io/providers/hashicorp/azurerm/4.37.0/docs/resources/subnet) | resource |
-| [azurerm_virtual_network.this](https://registry.terraform.io/providers/hashicorp/azurerm/4.37.0/docs/resources/virtual_network) | resource |
+| [azurerm_linux_virtual_machine.this](https://registry.terraform.io/providers/hashicorp/azurerm/4.38.0/docs/resources/linux_virtual_machine) | resource |
+| [azurerm_network_interface.this](https://registry.terraform.io/providers/hashicorp/azurerm/4.38.0/docs/resources/network_interface) | resource |
+| [azurerm_resource_group.this](https://registry.terraform.io/providers/hashicorp/azurerm/4.38.0/docs/resources/resource_group) | resource |
+| [azurerm_storage_account.this](https://registry.terraform.io/providers/hashicorp/azurerm/4.38.0/docs/resources/storage_account) | resource |
+| [azurerm_storage_container.this](https://registry.terraform.io/providers/hashicorp/azurerm/4.38.0/docs/resources/storage_container) | resource |
+| [azurerm_subnet.this](https://registry.terraform.io/providers/hashicorp/azurerm/4.38.0/docs/resources/subnet) | resource |
+| [azurerm_virtual_network.this](https://registry.terraform.io/providers/hashicorp/azurerm/4.38.0/docs/resources/virtual_network) | resource |
 
 ## Inputs
 

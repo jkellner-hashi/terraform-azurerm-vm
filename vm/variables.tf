@@ -83,3 +83,9 @@ variable "container_access_type" {
     error_message = "Container access type must be one of: private, blob, container."
   }
 }
+
+variable "tags" {
+  type = string
+  default = null
+  description = "Tags"
+}
