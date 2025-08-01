@@ -7,19 +7,18 @@ terraform {
   }
 }
 
-provider "azurerm" {
-  resource_provider_registrations = "none" # This is only required when the User, Service Principal, or Identity running Terraform lacks the permissions to register Azure Resource Providers.
-  features {}
-  subscription_id = var.subscription_id
-  #tenant_id = var.tenant_id # This is optional
+locals {
+  default_tags = {
+    ManagedBy = "Terraform"
+    Project   = var.prefix
+  }
 }
-
-
 
 # Create a resource group
 resource "azurerm_resource_group" "this" {
   name     = "${var.prefix}-rg"
   location = var.location
+  tags     = local.default_tags
 }
 
 # Create a virtual network within the resource group
@@ -28,6 +27,7 @@ resource "azurerm_virtual_network" "this" {
   resource_group_name = azurerm_resource_group.this.name
   location            = azurerm_resource_group.this.location
   address_space       = var.address_space
+  tags                = local.default_tags
 }
 
 
@@ -44,7 +44,7 @@ resource "azurerm_network_interface" "this" {
   name                = "${var.prefix}-nic"
   location            = azurerm_resource_group.this.location
   resource_group_name = azurerm_resource_group.this.name
-
+  tags                = local.default_tags
   ip_configuration {
     name                          = "internal"
     subnet_id                     = azurerm_subnet.this[0].id
@@ -62,11 +62,7 @@ resource "azurerm_linux_virtual_machine" "this" {
   network_interface_ids = [
     azurerm_network_interface.this[0].id,
   ]
-
-  # tags = [
-  #   var.tags
-  # ]
-
+  tags = local.default_tags
   #   admin_ssh_key {
   #     username   = "adminuser"
   #     public_key = file("~/.ssh/id_rsa.pub")
@@ -93,9 +89,7 @@ resource "azurerm_storage_account" "this" {
   account_tier             = "Standard"
   account_replication_type = "LRS"
 
-  tags = {
-    environment = var.tags
-  }
+  tags = local.default_tags
 }
 
 resource "azurerm_storage_container" "this" {
@@ -103,4 +97,5 @@ resource "azurerm_storage_container" "this" {
   name                  = "${var.prefix}-storage-container"
   storage_account_id    = azurerm_storage_account.this[0].id
   container_access_type = var.container_access_type
+
 }

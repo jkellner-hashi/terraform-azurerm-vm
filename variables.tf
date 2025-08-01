@@ -85,7 +85,7 @@ variable "container_access_type" {
 }
 
 variable "tags" {
-  type = string
-  default = null
+  type        = string
+  default     = null
   description = "Tags"
 }
