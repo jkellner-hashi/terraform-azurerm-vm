@@ -1,15 +1,3 @@
-variable "subscription_id" {
-  type        = string
-  default     = null
-  description = "Azure subscription ID"
-}
-
-variable "tenant_id" {
-  type        = string
-  default     = null
-  description = "Azure tenant ID"
-}
-
 variable "prefix" {
   type        = string
   default     = null
@@ -84,8 +72,7 @@ variable "container_access_type" {
   }
 }
 
-variable "tags" {
-  type        = string
+variable "sku" {
+  description = "VM SKU"
   default     = null
-  description = "Tags"
 }

@@ -9,8 +9,9 @@ terraform {
 
 locals {
   default_tags = {
-    ManagedBy = "Terraform"
+    ManagedBy = "ARM templates"
     Project   = var.prefix
+
   }
 }
 
@@ -36,7 +37,7 @@ resource "azurerm_subnet" "this" {
   name                 = "internal"
   resource_group_name  = azurerm_resource_group.this.name
   virtual_network_name = azurerm_virtual_network.this.name
-  address_prefixes     = ["10.0.2.0/24"]
+  address_prefixes     = ["172.16.0.2/24"]
 }
 
 resource "azurerm_network_interface" "this" {
@@ -57,7 +58,7 @@ resource "azurerm_linux_virtual_machine" "this" {
   name                = "${var.prefix}-vm"
   resource_group_name = azurerm_resource_group.this.name
   location            = azurerm_resource_group.this.location
-  size                = "Standard_F2"
+  size                = var.sku
   admin_username      = "adminuser"
   network_interface_ids = [
     azurerm_network_interface.this[0].id,
